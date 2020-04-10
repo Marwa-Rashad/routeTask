@@ -1,3 +1,4 @@
+
 var siteName = document.getElementById("siteName");
 var siteURL = document.getElementById("siteURL");
 
@@ -15,4 +16,20 @@ sitesList = [];
 } else {
     sitesList = JSON.parse(localStorage.getItem("Details"));
     show();
+}
+=======
+//mai
+function saveUpdatedData(i) {
+    sitesList[i].name = siteName.value;
+    sitesList[i].url =  siteURL.value;
+    localStorage.setItem("Details",  JSON.stringify(sitesList));
+    document.getElementById('btn').innerHTML = `<button class="btn btn-info my-3" onclick="submit()">Submit</button>`;
+clear();
+show();
+
+}
+
+function clear() {
+    siteName.value = "";
+    siteURL.value = "";
 }
