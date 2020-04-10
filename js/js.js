@@ -1,3 +1,6 @@
+function deleteSite(item) {
+sitesList.splice(item, 1);
+localStorage.setItem("Details",  JSON.stringify(sitesList));
 
 function submit() {
 
@@ -28,7 +31,7 @@ function submit() {
     clear();
     
     }
-=======
+ 
 function show() {
     var content = "";
     for (var i = 0; i < sitesList.length; i++) {
@@ -43,7 +46,7 @@ function show() {
     }
     document.getElementById("result").innerHTML = content;
 }
-=======
+
 //mai
 function saveUpdatedData(i) {
     sitesList[i].name = siteName.value;
@@ -55,6 +58,14 @@ show();
 
 }
 
+function updateDetails(i) {
+document.getElementById('btn').innerHTML = `<button class="btn btn-info my-3" onclick="saveUpdatedData(`+i+`)">Update</button>
+`;
+var siteName = document.getElementById("siteName");
+siteName.value = sitesList[i].name;
+siteURL.value = sitesList[i].url;
+
+}
 function clear() {
     siteName.value = "";
     siteURL.value = "";
