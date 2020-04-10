@@ -1,3 +1,25 @@
+
+
+var siteName = document.getElementById("siteName");
+var siteURL = document.getElementById("siteURL");
+
+var siteError = `<div class="alert alert-danger" role="alert">
+Name is required!
+</div>`;
+
+var URLerror = `<div class="alert alert-danger" role="alert">
+URL Field is required!
+</div>`;
+
+var sitesList;
+if (localStorage.getItem("Details") == null) {
+sitesList = [];
+} else {
+    sitesList = JSON.parse(localStorage.getItem("Details"));
+    show();
+}
+
+
 function deleteSite(item) {
 sitesList.splice(item, 1);
 localStorage.setItem("Details",  JSON.stringify(sitesList));
@@ -47,7 +69,8 @@ function show() {
     document.getElementById("result").innerHTML = content;
 }
 
-//mai
+
+
 function saveUpdatedData(i) {
     sitesList[i].name = siteName.value;
     sitesList[i].url =  siteURL.value;
@@ -70,6 +93,4 @@ function clear() {
     siteName.value = "";
     siteURL.value = "";
 }
-
-
 
